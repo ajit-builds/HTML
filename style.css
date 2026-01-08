@@ -1,0 +1,38 @@
+
+/* -------------------------------Question four--------------------------------- */
+* {
+    box-sizing: border-box;
+    text-align: center;
+    background-color: yellowgreen;
+}
+
+.card {
+    border: 1px solid #000;
+
+}
+
+.card-text {
+    font-size: 0.9em;
+}
+
+
+#main-nav {
+    background-color: rgb(240, 240, 240);
+}
+
+nav a {
+    text-decoration: none;
+
+}
+
+.parent>p {
+    font-weight: bold;
+}
+
+h1+p {
+    margin-top: 0;
+}
+
+div~p {
+    background-color: yellow;
+} 
