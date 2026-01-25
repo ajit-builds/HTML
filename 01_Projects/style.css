@@ -1,0 +1,30 @@
+body {
+    margin: 0%;
+    padding: 0%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+header {
+
+    text-align: center;
+    background-color: rgb(81, 226, 81);
+    display: grid;
+    
+
+
+
+
+
+}
+
+nav{
+    display: grid;
+    grid-template-columns: 200px 1fr auto;
+
+    gap: 0%;
+
+}
+a{
+    gap: 0%;
+}

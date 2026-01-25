@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="animation.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <svg width="200" height="200">
+        <circle cx="100" cy="100" r="50" fill="blue">
+            <animate attributeName="r" from="50" to="80" dur="1s" begin="0s" repeatCount="indefinite"
+                alternate="true" />
+        </circle>
+        <line x1="40" y1="100" x2="160" y2="200" stroke="black" stroke-width="4">
+           <animate 
+  attributeName="transform"
+  type="rotate"
+  from="0 cx cy"
+  to="360 cx cy"
+  dur="2s"
+  repeatCount="indefinite"
+/>
+
+        </line>
+        <circle cx="60" cy="60" r="25" fill="orange">
+
+            <animate attributeName="cx" from="50" to="650" dur="2s" repeatCount="indefinite"/>
+        </circle>
+
+    </svg>
+</body>
+
+</html>
