@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Joint Stickman</title>
+
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+
+        .stickman {
+            position: relative;
+            width: 120px;
+            height: 260px;
+            animation:  wave 1s infinite alternate;
+        }
+
+
+        .head {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border: 3px solid black;
+            border-radius: 50%;
+            left: 30px;
+        }
+
+
+        .body {
+            position: absolute;
+            width: 4px;
+            height: 90px;
+            background: black;
+            top: 63px;
+            left: 58px;
+        }
+
+
+        .arm {
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: black;
+            top: 80px;
+            left: 58px;
+
+            transform-origin: left center;
+        }
+
+        .arm .lower_arm {
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background: black;
+            left: 60px;
+            transform-origin: left center;
+        }
+
+        .arm.left {
+            transform: rotate(160deg);
+            animation: half-greetings 1s ease-out forwards;
+        }
+
+        .arm.left .lower_arm {
+            transform: rotate(-40deg);
+            animation: remaining-greetings 0.4s infinite ;
+        }
+
+        .arm.right {
+            transform: rotate(20deg);
+        }
+
+        .arm.right .lower_arm {
+            transform: rotate(40deg);
+        }
+
+
+        .leg {
+            position: absolute;
+            width: 4px;
+            height: 70px;
+            background: black;
+            top: 150px;
+            left: 58px;
+
+            transform-origin: top center;
+        }
+
+        .leg .lower_leg {
+            position: absolute;
+            width: 4px;
+            height: 70px;
+            background: black;
+            top: 70px;
+
+            transform-origin: top center;
+        }
+
+        .leg.left {
+            transform: rotate(-15deg);
+        }
+
+        .leg.left .lower_leg {
+            transform: rotate(15deg);
+        }
+
+        .leg.right {
+            transform: rotate(25deg);
+        }
+
+        .leg.right .lower_leg {
+            transform: rotate(-35deg);
+        }
+
+        @keyframes half-greetings {
+            from {
+                transform: rotate(160deg);
+            }
+
+            to {
+                transform: rotate(180deg);
+            }
+        }
+
+        @keyframes remaining-greetings {
+            from {
+                transform: rotate(80deg);
+            }
+
+            to {
+                transform: rotate(100deg);
+            }
+        }
+        @keyframes wave {
+            from {
+                transform: translateY(20px);
+            }
+            to {
+                transform: translateY(0px);
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="stickman">
+
+        <div class="head"></div>
+        <div class="body"></div>
+
+        <div class="arm left">
+            <div class="lower_arm"></div>
+        </div>
+
+        <div class="arm right">
+            <div class="lower_arm"></div>
+        </div>
+
+        <div class="leg left">
+            <div class="lower_leg"></div>
+        </div>
+
+        <div class="leg right">
+            <div class="lower_leg"></div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .loading{
+            width: 200px;
+            animation: blink 1s infinite alternate;
+        }
+        .rotating_circle{
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            background: black;
+            border: 6px solid red;
+            border-top: 6px solid #3498db; 
+            animation: spin 2s infinite; 
+        }
+        @keyframes blink {
+            from{
+                color: red;
+            }
+            to {
+                color: blue;
+            }
+        }
+        @keyframes spin{
+            from {
+
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        @keyframes bounce{
+            from{
+                transform: translateY(20px);
+            }
+            to {
+                transform: translateY(-20px);
+            }
+        }
+        @keyframes float{
+            from{
+                transform: translateY(0px);
+            }
+            to {
+                transform: translateY(-10px);   
+            }
+        }
+        @keyframes loading_bar_animation{
+            from{
+                width: 0px;
+                
+            }
+            to {
+                width: 200px; 
+
+            }
+        }
+        .dot1, .dot2, .dot3{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: green;
+            ;
+            animation: bounce 1s infinite;
+        }
+        .loading2{
+            width: 200px;
+            animation: float 1s infinite alternate;
+            
+        }
+        .loading_bar{
+            width: 200px;
+            height: 20px;
+            background:  red;
+            border: 2px solid black;
+            animation: loading_bar_animation 2s infinite alternate;
+
+        }
+    </style>
+</head>
+
+<body>
+ <div class="box">
+    <h1>Task 1</h1>
+    <div class="loading"><h1>Loading...</h1></div>
+
+    <h1>Task 2</h1>
+    <div class="rotating_circle"></div>
+    <h3>Task 3</h3>
+    <div class="bounce" style="display: flex; gap: 10px;">
+        <div class="dot1"></div>
+        <div class="dot2"></div>
+        <div class="dot3"></div>
+    </div>
+    <h3>Task 4</h3>
+        <div class="loading2"><h1>Loading...</h1></div>
+
+    <h3>Task 5</h3>
+    <div style="border: 2px solid black; width: 200px; background-color: grey;">
+    <div class="loading_bar"></div>
+    </div>
+
+    
+
+</body>
+
+</html>
