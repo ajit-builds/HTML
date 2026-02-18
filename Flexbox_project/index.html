@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Responsive header</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+.headline {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap; /* Forces everything to stay on one line */
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 14px;
+    padding: 0.5rem;
+    gap: 5px; /* Reduced gap to save space */
+    width: 100%;
+    box-sizing: border-box; /* Ensures padding doesn't add to width */
+}
+
+.title-header {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+    flex-shrink: 1; /* Allows title to shrink slightly if needed */
+    white-space: nowrap; /* Keeps title on one line */
+}
+
+.search {
+    flex: 1 1 auto; /* The search bar will do most of the shrinking/growing */
+    min-width: 50px; /* Allows it to become very narrow */
+    height: 1.5rem;
+    padding: 0.2rem;
+}
+
+.navbar {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 1; 
+    min-width: 0; /* Important: allows the nav container to shrink */
+}
+
+.navbar a {
+    font-size: 0.9rem; /* Smaller base font for links */
+    white-space: nowrap;
+}
+
+.CTA_container {
+    display: flex;
+    gap: 4px;
+    flex-shrink: 0; /* Keeps buttons from getting too squashed to read */
+}
+
+.CTA {
+    font-size: 0.8rem;
+    padding: 2px 5px;
+    white-space: nowrap;
+}
+
+    a {
+        text-decoration: none;
+        color: black;
+        cursor: pointer;
+    }
+</style>
+
+<body style="padding: 2rem;">
+    <header class=" headline">
+        <h1 class="title-header">RespoHeader</h1>
+        <input type="text" placeholder="Search..." class="search">
+
+
+
+        <nav class="navbar">
+
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </nav>
+        <div class="CTA_container">
+            <button class="CTA">Sign Up</button>
+            <button class="CTA">Login</button>
+        </div>
+
+
+    </header>
+
+</body>
+
+</html>
