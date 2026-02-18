@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Maze</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --wall:   #0a0a14;
+    --floor:  #1c1c3a;
+    --active: #3a3aff;
+    --gold:   #f5c842;
+    --green:  #39ff14;
+    --text:   #c8c8ff;
+  }
+
+  body {
+    min-height: 100vh;
+    background: #06060f;
+    background-image:
+      radial-gradient(ellipse 60% 50% at 50% 0%, #1a1050 0%, transparent 70%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    font-family: 'Press Start 2P', monospace;
+    color: var(--text);
+    padding-bottom: 160px;
+  }
+
+  h1 {
+    font-size: clamp(0.9rem, 3vw, 1.3rem);
+    color: var(--gold);
+    letter-spacing: 3px;
+    text-shadow: 0 0 20px #f5c84280;
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { text-shadow: 0 0 16px #f5c84270; }
+    50%      { text-shadow: 0 0 32px #f5c842cc; }
+  }
+
+  .hint {
+    font-size: 0.45rem;
+    opacity: 0.5;
+    letter-spacing: 1px;
+    text-align: center;
+    line-height: 1.8;
+  }
+
+  .maze {
+    display: grid;
+    grid-template-columns: repeat(4, 70px);
+    grid-template-rows: repeat(4, 70px);
+    gap: 5px;
+    padding: 16px;
+    background: #0d0d22;
+    border: 2px solid #2a2a60;
+    border-radius: 12px;
+    box-shadow: 0 0 40px #0008, inset 0 0 30px #00000080;
+  }
+
+  .cell {
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    position: relative;
+    transition: background 0.2s, box-shadow 0.2s;
+  }
+
+  .wall {
+    background: var(--wall);
+    border: 1px solid #15152a;
+    box-shadow: inset 0 2px 6px #00000080;
+  }
+
+  .path {
+    background: var(--floor);
+    border: 1px solid #2a2a5a;
+  }
+
+  .cell:target {
+    background: var(--active);
+    border-color: #7070ff;
+    box-shadow: 0 0 18px #3a3aff88, inset 0 0 10px #6060ff40;
+    animation: glow 1.2s ease-in-out infinite alternate;
+  }
+  @keyframes glow {
+    from { box-shadow: 0 0 12px #3a3aff66; }
+    to   { box-shadow: 0 0 28px #7070ffcc; }
+  }
+
+  .lbl { pointer-events: none; line-height: 1; }
+
+  .nav { display: none; }
+
+  .cell:target > .nav {
+    display: grid;
+    grid-template-columns: repeat(3, 54px);
+    grid-template-rows: repeat(3, 54px);
+    gap: 6px;
+    position: fixed;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+  }
+
+  .nav a, .nav .x {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    border-radius: 8px;
+    font-size: 1.4rem;
+    text-decoration: none;
+    font-family: 'Press Start 2P', monospace;
+  }
+
+  .nav a {
+    background: var(--gold);
+    color: #111;
+    border: 2px solid #c9a230;
+    box-shadow: 0 4px 0 #8a6d20, 0 0 12px #f5c84240;
+    transition: transform 0.1s, box-shadow 0.1s;
+  }
+  .nav a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #8a6d20, 0 0 20px #f5c84270;
+  }
+  .nav a:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #8a6d20;
+  }
+  .nav .x { background: transparent; pointer-events: none; }
+
+  .win-panel {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    gap: 14px;
+    flex-direction: column;
+    align-items: center;
+  }
+  #c15:target > .win-panel {
+    display: flex;
+    animation: winpop 0.5s cubic-bezier(.17,.67,.35,1.4) both;
+  }
+  @keyframes winpop {
+    from { opacity: 0; transform: translateX(-50%) scale(0.6); }
+    to   { opacity: 1; transform: translateX(-50%) scale(1); }
+  }
+  .win-title {
+    font-size: 0.7rem;
+    color: var(--green);
+    text-shadow: 0 0 16px #39ff14;
+    letter-spacing: 2px;
+  }
+  .win-restart {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background: var(--green);
+    color: #0a1a06;
+    border-radius: 8px;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 0.5rem;
+    text-decoration: none;
+    border: 2px solid #20cc08;
+    box-shadow: 0 4px 0 #106006, 0 0 16px #39ff1460;
+    letter-spacing: 1px;
+    transition: transform 0.1s;
+  }
+  .win-restart:hover { transform: translateY(-2px); }
+
+  .restart-link {
+    font-size: 0.45rem;
+    color: var(--text);
+    opacity: 0.4;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: opacity 0.2s;
+  }
+  .restart-link:hover { opacity: 0.8; }
+</style>
+</head>
+<body>
+
+<h1>⬛ MAZE ⬛</h1>
+<p class="hint">Find your way from 🟢 to 🏁<br>Click the arrow buttons to move</p>
+
+<div class="maze">
+
+\  <div id="c0" class="cell path">
+    <span class="lbl">🟢</span>
+    <div class="nav">
+      <div class="x"></div><div class="x"></div><div class="x"></div>
+      <div class="x"></div><div class="x"></div><a href="#c1">▶</a>
+      <div class="x"></div><div class="x"></div><div class="x"></div>
+    </div>
+  </div>
+
+  <div id="c1" class="cell path">
+    <div class="nav">
+      <div class="x"></div><div class="x"></div><div class="x"></div>
+      <a href="#c0">◀</a><div class="x"></div><div class="x"></div>
+      <div class="x"></div><a href="#c5">▼</a><div class="x"></div>
+    </div>
+  </div>
+
+  <div class="cell wall"></div>
+
+  <div id="c3" class="cell path">
+    <div class="nav">
+      <div class="x"></div><div class="x"></div><div class="x"></div>
+      <div class="x"></div><div class="x"></div><div class="x"></div>
+      <div class="x"></div><a href="#c7">▼</a><div class="x"></div>
+    </div>
+  </div>
+
+
+  <div class="cell wall"></div>
+
+  <div id="c5" class="cell path">
+    <div class="nav">
+      <div class="x"></div><a href="#c1">▲</a><div class="x"></div>
+      <div class="x"></div><div class="x"></div><a href="#c6">▶</a>
+      <div class="x"></div><div class="x"></div><div class="x"></div>
+    </div>
+  </div>
+
+  <div id="c6" class="cell path">
+    <div class="nav">
+      <div class="x"></div><div class="x"></div><div class="x"></div>
+      <a href="#c5">◀</a><div class="x"></div><a href="#c7">▶</a>
+      <div class="x"></div><a href="#c10">▼</a><div class="x"></div>
+    </div>
+  </div>
+
+  <div id="c7" class="cell path">
+    <div class="nav">
+      <div class="x"></div><a href="#c3">▲</a><div class="x"></div>
+      <a href="#c6">◀</a><div class="x"></div><div class="x"></div>
+      <div class="x"></div><div class="x"></div><div class="x"></div>
+    </div>
+  </div>
+
+  <!-- ═══ ROW 2 ═══ -->
+
+  <!-- c8 (2,0) WALL -->
+  <div class="cell wall"></div>
+  <!-- c9 (2,1) WALL -->
+  <div class="cell wall"></div>
+
+  <!-- c10 (2,2) — up, down -->
+  <div id="c10" class="cell path">
+    <div class="nav">
+      <div class="x"></div><a href="#c6">▲</a><div class="x"></div>
+      <div class="x"></div><div class="x"></div><div class="x"></div>
+      <div class="x"></div><a href="#c14">▼</a><div class="x"></div>
+    </div>
+  </div>
+
+  <div class="cell wall"></div>
+
+
+  <div id="c12" class="cell path">
+    <div class="nav">
+      <div class="x"></div><div class="x"></div><div class="x"></div>
+      <div class="x"></div><div class="x"></div><a href="#c13">▶</a>
+      <div class="x"></div><div class="x"></div><div class="x"></div>
+    </div>
+  </div>
+
+  <div id="c13" class="cell path">
+    <div class="nav">
+      <div class="x"></div><div class="x"></div><div class="x"></div>
+      <a href="#c12">◀</a><div class="x"></div><a href="#c14">▶</a>
+      <div class="x"></div><div class="x"></div><div class="x"></div>
+    </div>
+  </div>
+
+  <div id="c14" class="cell path">
+    <div class="nav">
+      <div class="x"></div><a href="#c10">▲</a><div class="x"></div>
+      <a href="#c13">◀</a><div class="x"></div><a href="#c15">▶</a>
+      <div class="x"></div><div class="x"></div><div class="x"></div>
+    </div>
+  </div>
+
+  <div id="c15" class="cell path">
+    <span class="lbl">🏁</span>
+    <div class="win-panel">
+      <div class="win-title">✦ YOU WIN ✦</div>
+      <a href="#c0" class="win-restart">↩ PLAY AGAIN</a>
+    </div>
+  </div>
+
+</div>
+
+<a href="#c0" class="restart-link">[ RESTART ]</a>
+
+</body>
+</html>
