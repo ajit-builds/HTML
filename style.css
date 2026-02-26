@@ -1,32 +1,48 @@
+/* Forge theme: black & grey palette */
+:root {
+    --bg: #0b0b0b;
+    --panel: #111111;
+    --muted: #6b6b6b;
+    --accent: #9ea1a3;
+    --text: #e6e6e6;
+    --card-border: #1f1f1f;
+    --highlight: #151515;
+}
 
-/* -------------------------------Question four--------------------------------- */
 * {
     box-sizing: border-box;
-    text-align: center;
-    background-color: yellowgreen;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
 .card {
-    border: 1px solid #000;
-
+    border: 1px solid var(--card-border);
+    background-color: var(--panel);
 }
 
 .card-text {
     font-size: 0.9em;
+    color: var(--text);
 }
 
-
 #main-nav {
-    background-color: rgb(240, 240, 240);
+    background-color: var(--panel);
+    border-bottom: 1px solid var(--card-border);
 }
 
 nav a {
     text-decoration: none;
-
+    color: var(--text);
 }
 
 .parent>p {
-    font-weight: bold;
+    font-weight: 700;
+    color: var(--accent);
 }
 
 h1+p {
@@ -34,5 +50,24 @@ h1+p {
 }
 
 div~p {
-    background-color: yellow;
-} 
+    background-color: transparent;
+    color: var(--muted);
+}
+
+/* Links, buttons and accents */
+a,
+a:visited {
+    color: var(--accent);
+}
+
+button,
+.btn {
+    background-color: var(--highlight);
+    color: var(--text);
+    border: 1px solid var(--card-border);
+}
+
+/* Small utility */
+.muted {
+    color: var(--muted);
+}

@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PixelForge Studio | Bootstrap 5.3 Showcase</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════
+     1. OFFCANVAS SIDEBAR
+════════════════════════════════════════════ -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="sidebarOffcanvas" aria-labelledby="sidebarLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="sidebarLabel">
+      Pixel<span class="text-accent">Forge</span>
+    </h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <nav class="nav flex-column">
+      <a class="nav-link" href="#hero"><i class="bi bi-house-door"></i> Home</a>
+      <a class="nav-link" href="#alerts"><i class="bi bi-bell"></i> Alerts</a>
+      <a class="nav-link" href="#pricing"><i class="bi bi-credit-card"></i> Pricing</a>
+      <a class="nav-link" href="#gallery"><i class="bi bi-images"></i> Gallery</a>
+      <a class="nav-link" href="#contact"><i class="bi bi-envelope"></i> Contact</a>
+      <a class="nav-link" href="#badges"><i class="bi bi-patch-check"></i> Badges</a>
+    </nav>
+    <hr style="border-color: var(--border)" />
+    <p class="small" style="color:var(--muted)">This sidebar is built with Bootstrap's <strong style="color:#fff">Offcanvas</strong> component — slide it in/out from any edge of the viewport.</p>
+    <div class="d-grid gap-2 mt-3">
+      <button class="btn btn-glow btn-sm">Get Started</button>
+      <button class="btn btn-outline-custom btn-sm">Learn More</button>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     2. NAVBAR
+════════════════════════════════════════════ -->
+<nav class="navbar navbar-expand-lg sticky-top navbar-custom" id="mainNav">
+  <div class="container">
+    <!-- Offcanvas Toggle -->
+    <button class="btn btn-sm me-2 d-none d-lg-inline-flex align-items-center gap-1"
+            style="color:var(--muted); border:1px solid var(--border); border-radius:8px; background:transparent;"
+            data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas">
+      <i class="bi bi-layout-sidebar"></i>
+    </button>
+
+    <a class="navbar-brand" href="#">Pixel<span>Forge</span></a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav me-auto ms-3 gap-1">
+        <li class="nav-item"><a class="nav-link active" href="#hero">Home</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Services</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#"><i class="bi bi-palette me-2"></i>UI Design</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-code-slash me-2"></i>Development</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-graph-up me-2"></i>Analytics</a></li>
+            <li><hr class="dropdown-divider" style="border-color:var(--border)"></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-rocket me-2"></i>Launch Package</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Resources</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#"><i class="bi bi-book me-2"></i>Docs</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-chat-square-dots me-2"></i>Blog</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-people me-2"></i>Community</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="d-flex align-items-center gap-2">
+        <input class="form-control search-bar" type="search" placeholder="&#128269; Search..." style="width:200px;" />
+        <button class="btn btn-outline-custom btn-sm" data-bs-toggle="offcanvas" data-bs-target="#sidebarOffcanvas">
+          <i class="bi bi-layout-sidebar"></i>
+        </button>
+        <button class="btn btn-glow btn-sm" data-bs-toggle="modal" data-bs-target="#getStartedModal">Get Started</button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════════════════
+     3. HERO CAROUSEL (3 Slides)
+════════════════════════════════════════════ -->
+<section class="hero-section p-0" id="hero">
+  <div id="mainCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#mainCarousel" data-bs-slide-to="2"></button>
+    </div>
+
+    <div class="carousel-inner">
+      <!-- Slide 1 -->
+      <div class="carousel-item active">
+        <div class="carousel-slide slide-bg-1">
+          <div class="slide-orb" style="width:500px;height:500px;background:var(--accent);top:-100px;right:-100px;"></div>
+          <div class="slide-orb" style="width:300px;height:300px;background:var(--accent3);bottom:50px;left:-80px;"></div>
+          <div class="carousel-caption-custom px-3">
+            <div class="badge-tag"><i class="bi bi-stars me-1"></i> Award-Winning Studio</div>
+            <h2>We Craft<br /><span class="text-accent">Digital</span> Experiences</h2>
+            <p>Transforming bold ideas into pixel-perfect products that users love and businesses rely on.</p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+              <button class="btn btn-glow" data-bs-toggle="modal" data-bs-target="#getStartedModal">
+                <i class="bi bi-rocket-takeoff me-2"></i>Launch Project
+              </button>
+              <button class="btn btn-outline-custom">View Portfolio</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <div class="carousel-slide slide-bg-2">
+          <div class="slide-orb" style="width:600px;height:600px;background:#f72585;top:-200px;left:50%;transform:translateX(-50%);"></div>
+          <div class="carousel-caption-custom px-3">
+            <div class="badge-tag" style="background:rgba(76,201,240,.1);border-color:rgba(76,201,240,.4);color:var(--accent2)">
+              <i class="bi bi-bar-chart me-1"></i> Data-Driven Design
+            </div>
+            <h2>Strategy Meets<br /><span class="text-accent2">Aesthetics</span></h2>
+            <p>Every pixel is intentional. We blend analytics with artistry to deliver measurable results.</p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+              <button class="btn btn-glow" style="background:var(--accent2); box-shadow:0 0 24px rgba(76,201,240,.4);" data-bs-toggle="modal" data-bs-target="#infoModal">
+                <i class="bi bi-info-circle me-2"></i>Our Process
+              </button>
+              <button class="btn btn-outline-custom">Case Studies</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="carousel-item">
+        <div class="carousel-slide slide-bg-3">
+          <div class="slide-orb" style="width:400px;height:400px;background:var(--accent3);bottom:-100px;right:-50px;"></div>
+          <div class="slide-orb" style="width:300px;height:300px;background:var(--accent2);top:50px;left:20px;"></div>
+          <div class="carousel-caption-custom px-3">
+            <div class="badge-tag" style="background:rgba(114,9,183,.15);border-color:rgba(114,9,183,.4);color:#b44cf0">
+              <i class="bi bi-lightning me-1"></i> High Performance
+            </div>
+            <h2>Built for<br /><span style="color:#b44cf0">Scale</span> & Speed</h2>
+            <p>Lightning-fast, fully responsive, and engineered to grow alongside your ambitions.</p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+              <button class="btn btn-glow" style="background:#7209b7;box-shadow:0 0 24px rgba(114,9,183,.5);" data-bs-toggle="modal" data-bs-target="#videoModal">
+                <i class="bi bi-play-circle me-2"></i>Watch Demo
+              </button>
+              <button class="btn btn-outline-custom">Get a Quote</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#mainCarousel" data-bs-slide="prev">
+      <div style="background:rgba(255,255,255,.1);border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(10px);">
+        <i class="bi bi-chevron-left text-white"></i>
+      </div>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#mainCarousel" data-bs-slide="next">
+      <div style="background:rgba(255,255,255,.1);border-radius:50%;width:44px;height:44px;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(10px);">
+        <i class="bi bi-chevron-right text-white"></i>
+      </div>
+    </button>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stat-strip">
+  <div class="container">
+    <div class="row g-0">
+      <div class="col-6 col-md-3 border-end" style="border-color:var(--border)!important">
+        <div class="stat-item">
+          <div class="stat-num text-accent">500+</div>
+          <div class="stat-label mt-1">Projects Delivered</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 border-end" style="border-color:var(--border)!important">
+        <div class="stat-item">
+          <div class="stat-num text-accent2">98%</div>
+          <div class="stat-label mt-1">Client Satisfaction</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 border-end" style="border-color:var(--border)!important">
+        <div class="stat-item">
+          <div class="stat-num" style="color:#b44cf0">12yr</div>
+          <div class="stat-label mt-1">Industry Experience</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-item">
+          <div class="stat-num" style="color:#ffd25a">40+</div>
+          <div class="stat-label mt-1">Awards Won</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     4. ALERTS SECTION
+════════════════════════════════════════════ -->
+<section id="alerts">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <p class="section-label">Notifications</p>
+      <h2 class="section-title">System <span class="text-accent">Alerts</span></h2>
+      <p class="section-sub mt-3">Bootstrap dismissible alerts for every message type — styled to match our dark aesthetic.</p>
+    </div>
+    <div class="row g-3 reveal">
+      <div class="col-12">
+        <div class="alert alert-custom success alert-dismissible fade show d-flex align-items-center gap-3" role="alert">
+          <i class="bi bi-check-circle-fill fs-5"></i>
+          <div><strong>Success!</strong> Your project has been deployed successfully to production. All systems are green. 🚀</div>
+          <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" style="filter:invert(.6) sepia(1) saturate(3) hue-rotate(80deg)"></button>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="alert alert-custom warning alert-dismissible fade show d-flex align-items-center gap-3" role="alert">
+          <i class="bi bi-exclamation-triangle-fill fs-5"></i>
+          <div><strong>Warning!</strong> Your API usage is approaching the monthly limit. Consider upgrading your plan.</div>
+          <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" style="filter:invert(.6) sepia(1) saturate(3) hue-rotate(0deg)"></button>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="alert alert-custom danger alert-dismissible fade show d-flex align-items-center gap-3" role="alert">
+          <i class="bi bi-x-circle-fill fs-5"></i>
+          <div><strong>Error!</strong> Build failed on line 42. Unresolved module dependency detected in webpack config.</div>
+          <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" style="filter:invert(.6) sepia(1) saturate(3) hue-rotate(300deg)"></button>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="alert alert-custom info alert-dismissible fade show d-flex align-items-center gap-3" role="alert">
+          <i class="bi bi-info-circle-fill fs-5"></i>
+          <div><strong>Info:</strong> A new Bootstrap 5.3 update is available. Review the changelog before upgrading your dependencies.</div>
+          <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert" style="filter:invert(.6) sepia(1) saturate(3) hue-rotate(180deg)"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ════════════════════════════════════════════
+     5. BADGES & BUTTONS SECTION
+════════════════════════════════════════════ -->
+<section id="badges">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <p class="section-label">UI Elements</p>
+      <h2 class="section-title">Badges & <span class="text-accent">Buttons</span></h2>
+      <p class="section-sub mt-3">Every variant, size, and style — from pill badges to icon buttons.</p>
+    </div>
+
+    <!-- BADGES -->
+    <div class="card-dark p-4 mb-4 reveal">
+      <h5 class="mb-4" style="color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.1em">Badges</h5>
+      <div class="d-flex flex-wrap gap-3 align-items-center">
+        <span class="badge bg-primary rounded-pill fs-6 px-3 py-2">Primary</span>
+        <span class="badge bg-secondary rounded-pill fs-6 px-3 py-2">Secondary</span>
+        <span class="badge bg-success rounded-pill fs-6 px-3 py-2">Success</span>
+        <span class="badge bg-danger rounded-pill fs-6 px-3 py-2">Danger</span>
+        <span class="badge bg-warning text-dark rounded-pill fs-6 px-3 py-2">Warning</span>
+        <span class="badge bg-info text-dark rounded-pill fs-6 px-3 py-2">Info</span>
+        <span class="badge bg-light text-dark rounded-pill fs-6 px-3 py-2">Light</span>
+        <span class="badge rounded-pill fs-6 px-3 py-2" style="background:var(--accent)">
+          <i class="bi bi-stars me-1"></i> Featured
+        </span>
+        <span class="badge rounded-pill fs-6 px-3 py-2" style="background:linear-gradient(135deg,var(--accent),var(--accent3))">
+          Pro
+        </span>
+        <h5 class="ms-2 mb-0">Notifications <span class="badge bg-danger rounded-circle">9+</span></h5>
+      </div>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="card-dark p-4 reveal">
+      <h5 class="mb-4" style="color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.1em">Buttons</h5>
+      <!-- Sizes -->
+      <p class="small text-muted mb-2">Sizes</p>
+      <div class="d-flex flex-wrap gap-2 mb-4 align-items-center">
+        <button class="btn btn-primary btn-lg">Large</button>
+        <button class="btn btn-primary">Default</button>
+        <button class="btn btn-primary btn-sm">Small</button>
+      </div>
+
+      <!-- Colors -->
+      <p class="small text-muted mb-2">Colors</p>
+      <div class="d-flex flex-wrap gap-2 mb-4">
+        <button class="btn btn-primary rounded-pill"><i class="bi bi-hand-thumbs-up me-1"></i>Primary</button>
+        <button class="btn btn-success rounded-pill"><i class="bi bi-check me-1"></i>Success</button>
+        <button class="btn btn-danger rounded-pill"><i class="bi bi-x me-1"></i>Danger</button>
+        <button class="btn btn-warning text-dark rounded-pill"><i class="bi bi-exclamation me-1"></i>Warning</button>
+        <button class="btn btn-info text-dark rounded-pill"><i class="bi bi-info me-1"></i>Info</button>
+        <button class="btn btn-secondary rounded-pill">Secondary</button>
+        <button class="btn btn-dark rounded-pill">Dark</button>
+        <button class="btn btn-glow rounded-pill"><i class="bi bi-rocket me-1"></i>Custom Glow</button>
+      </div>
+
+      <!-- Outlines -->
+      <p class="small text-muted mb-2">Outlines & Tooltips</p>
+      <div class="d-flex flex-wrap gap-2">
+        <button class="btn btn-outline-primary rounded-pill"
+                data-bs-toggle="tooltip" data-bs-placement="top"
+                title="Bootstrap outline button with tooltip!">
+          <i class="bi bi-info-circle me-1"></i>Tooltip Top
+        </button>
+        <button class="btn btn-outline-success rounded-pill"
+                data-bs-toggle="tooltip" data-bs-placement="right"
+                title="Success action confirmed ✅">
+          Tooltip Right
+        </button>
+        <button class="btn btn-outline-danger rounded-pill"
+                data-bs-toggle="tooltip" data-bs-placement="bottom"
+                title="This will permanently delete the item!">
+          Tooltip Bottom
+        </button>
+        <button class="btn btn-outline-warning rounded-pill"
+                data-bs-toggle="popover"
+                data-bs-title="Popover Title"
+                data-bs-content="Popovers can contain richer content than tooltips — titles, paragraphs, links, and more!"
+                data-bs-trigger="click">
+          <i class="bi bi-chat-left-dots me-1"></i>Click Popover
+        </button>
+        <button class="btn btn-outline-info rounded-pill"
+                data-bs-toggle="popover"
+                data-bs-title="📊 Stats"
+                data-bs-content="Users: 1.2M · Revenue: $450K · Growth: +38% YoY"
+                data-bs-trigger="click">
+          Stats Popover
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ════════════════════════════════════════════
+     6. PRICING TABLE
+════════════════════════════════════════════ -->
+<section id="pricing">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <p class="section-label">Plans</p>
+      <h2 class="section-title">Simple, Transparent <span class="text-accent">Pricing</span></h2>
+      <p class="section-sub mt-3">No hidden fees. Cancel anytime. Scale as you grow.</p>
+    </div>
+    <div class="row g-4 justify-content-center reveal">
+      <!-- Starter -->
+      <div class="col-md-4">
+        <div class="card-dark p-4 h-100 text-center">
+          <p class="small mb-3" style="color:var(--muted);text-transform:uppercase;letter-spacing:.1em">Starter</p>
+          <div class="price-amount mb-1">$9</div>
+          <div class="price-period mb-4">/ month</div>
+          <ul class="feature-list text-start mb-4">
+            <li><i class="bi bi-check-circle-fill"></i>5 Projects</li>
+            <li><i class="bi bi-check-circle-fill"></i>10 GB Storage</li>
+            <li><i class="bi bi-check-circle-fill"></i>Basic Analytics</li>
+            <li class="off"><i class="bi bi-x-circle-fill"></i>Custom Domain</li>
+            <li class="off"><i class="bi bi-x-circle-fill"></i>Priority Support</li>
+            <li class="off"><i class="bi bi-x-circle-fill"></i>White Label</li>
+          </ul>
+          <button class="btn btn-outline-custom w-100">Get Starter</button>
+        </div>
+      </div>
+      <!-- Pro (Popular) -->
+      <div class="col-md-4">
+        <div class="card-dark pricing-popular p-4 h-100 text-center position-relative mt-0">
+          <div class="popular-badge">MOST POPULAR</div>
+          <p class="small mb-3 mt-2" style="color:var(--accent);text-transform:uppercase;letter-spacing:.1em">Professional</p>
+          <div class="price-amount text-accent mb-1">$29</div>
+          <div class="price-period mb-4">/ month</div>
+          <ul class="feature-list text-start mb-4">
+            <li><i class="bi bi-check-circle-fill"></i>Unlimited Projects</li>
+            <li><i class="bi bi-check-circle-fill"></i>100 GB Storage</li>
+            <li><i class="bi bi-check-circle-fill"></i>Advanced Analytics</li>
+            <li><i class="bi bi-check-circle-fill"></i>Custom Domain</li>
+            <li><i class="bi bi-check-circle-fill"></i>Priority Support</li>
+            <li class="off"><i class="bi bi-x-circle-fill"></i>White Label</li>
+          </ul>
+          <button class="btn btn-glow w-100">Get Professional</button>
+        </div>
+      </div>
+      <!-- Enterprise -->
+      <div class="col-md-4">
+        <div class="card-dark p-4 h-100 text-center">
+          <p class="small mb-3" style="color:var(--muted);text-transform:uppercase;letter-spacing:.1em">Enterprise</p>
+          <div class="price-amount mb-1" style="color:#b44cf0">$99</div>
+          <div class="price-period mb-4">/ month</div>
+          <ul class="feature-list text-start mb-4">
+            <li><i class="bi bi-check-circle-fill"></i>Unlimited Projects</li>
+            <li><i class="bi bi-check-circle-fill"></i>1 TB Storage</li>
+            <li><i class="bi bi-check-circle-fill"></i>Real-Time Analytics</li>
+            <li><i class="bi bi-check-circle-fill"></i>Custom Domain</li>
+            <li><i class="bi bi-check-circle-fill"></i>24/7 Dedicated Support</li>
+            <li><i class="bi bi-check-circle-fill"></i>White Label</li>
+          </ul>
+          <button class="btn w-100" style="border:1px solid #b44cf0;color:#b44cf0;border-radius:50px;background:transparent;" onclick="alert('Enterprise plan selected!')">Contact Sales</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ════════════════════════════════════════════
+     7. GALLERY
+════════════════════════════════════════════ -->
+<section id="gallery">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <p class="section-label">Portfolio</p>
+      <h2 class="section-title">Our Creative <span class="text-accent">Gallery</span></h2>
+      <p class="section-sub mt-3">A curated showcase — responsive grid that adapts from mobile to widescreen.</p>
+    </div>
+    <div class="row g-3 reveal">
+      <!-- Large feature item -->
+      <div class="col-md-6">
+        <div class="gallery-item" style="aspect-ratio:1/.9;">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a0a2e,#2d0020);display:flex;align-items:center;justify-content:center;position:relative;">
+            <div style="text-align:center;z-index:2;">
+              <i class="bi bi-brush fs-1 text-accent"></i>
+              <p class="mt-2 fw-bold">Brand Identity</p>
+            </div>
+            <div style="position:absolute;width:200px;height:200px;background:var(--accent);border-radius:50%;filter:blur(60px);opacity:.2;"></div>
+          </div>
+          <div class="gallery-overlay">
+            <div><span class="badge bg-dark me-2">Branding</span><p class="mb-0 small fw-bold">PixelBrand 2024</p></div>
+          </div>
+        </div>
+      </div>
+      <!-- Right column - 2 stacked -->
+      <div class="col-md-6">
+        <div class="row g-3">
+          <div class="col-6">
+            <div class="gallery-item">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg,#0d1b40,#0a1a12);display:flex;align-items:center;justify-content:center;">
+                <div style="text-align:center;"><i class="bi bi-phone fs-2 text-accent2"></i><p class="mt-1 small">Mobile App</p></div>
+              </div>
+              <div class="gallery-overlay"><div><p class="mb-0 small fw-bold">iOS App Design</p></div></div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="gallery-item">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a0020,#0d1b40);display:flex;align-items:center;justify-content:center;">
+                <div style="text-align:center;"><i class="bi bi-bar-chart-line fs-2" style="color:#b44cf0"></i><p class="mt-1 small">Analytics</p></div>
+              </div>
+              <div class="gallery-overlay"><div><p class="mb-0 small fw-bold">Dashboard UI</p></div></div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="gallery-item">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg,#0a2010,#101a30);display:flex;align-items:center;justify-content:center;">
+                <div style="text-align:center;"><i class="bi bi-cart3 fs-2 text-success"></i><p class="mt-1 small">E-Commerce</p></div>
+              </div>
+              <div class="gallery-overlay"><div><p class="mb-0 small fw-bold">Shop Redesign</p></div></div>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="gallery-item">
+              <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a1500,#200a05);display:flex;align-items:center;justify-content:center;">
+                <div style="text-align:center;"><i class="bi bi-camera fs-2" style="color:#ffd25a"></i><p class="mt-1 small">Photography</p></div>
+              </div>
+              <div class="gallery-overlay"><div><p class="mb-0 small fw-bold">Visual Campaign</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Bottom row - 3 equal -->
+      <div class="col-sm-6 col-md-4">
+        <div class="gallery-item" style="aspect-ratio:4/3;">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#001a20,#200a20);display:flex;align-items:center;justify-content:center;">
+            <div style="text-align:center;"><i class="bi bi-globe fs-2 text-info"></i><p class="mt-1 small">Web Design</p></div>
+          </div>
+          <div class="gallery-overlay"><div><p class="mb-0 small fw-bold">Corporate Site</p></div></div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="gallery-item" style="aspect-ratio:4/3;">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#150020,#0d1a00);display:flex;align-items:center;justify-content:center;">
+            <div style="text-align:center;"><i class="bi bi-cpu fs-2" style="color:var(--accent)"></i><p class="mt-1 small">AI Product</p></div>
+          </div>
+          <div class="gallery-overlay"><div><p class="mb-0 small fw-bold">AI Interface</p></div></div>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-4">
+        <div class="gallery-item" style="aspect-ratio:4/3;">
+          <div style="width:100%;height:100%;background:linear-gradient(135deg,#001020,#200015);display:flex;align-items:center;justify-content:center;">
+            <div style="text-align:center;"><i class="bi bi-play-btn fs-2 text-warning"></i><p class="mt-1 small">Motion Design</p></div>
+          </div>
+          <div class="gallery-overlay"><div><p class="mb-0 small fw-bold">Brand Animation</p></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ════════════════════════════════════════════
+     8. BOOTSTRAP UTILITIES SHOWCASE
+════════════════════════════════════════════ -->
+<section id="utilities">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <p class="section-label">Bootstrap Utilities</p>
+      <h2 class="section-title">Spacing, Colors & <span class="text-accent">Utilities</span></h2>
+      <p class="section-sub mt-3">Shadow, border, text alignment, and color utilities — all from Bootstrap 5.3.</p>
+    </div>
+    <div class="row g-3 reveal">
+      <div class="col-6 col-md-3">
+        <div class="util-box shadow-sm" style="background:rgba(247,37,133,.1);border:1px solid rgba(247,37,133,.2)">
+          <i class="bi bi-shadows text-accent fs-4 mb-2 d-block"></i>
+          <div class="fw-bold small">shadow-sm</div>
+          <div class="text-muted" style="font-size:.75rem">Subtle depth</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="util-box shadow" style="background:rgba(76,201,240,.1);border:1px solid rgba(76,201,240,.2)">
+          <i class="bi bi-layers text-accent2 fs-4 mb-2 d-block"></i>
+          <div class="fw-bold small">shadow</div>
+          <div class="text-muted" style="font-size:.75rem">Medium depth</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="util-box shadow-lg" style="background:rgba(114,9,183,.15);border:1px solid rgba(114,9,183,.3)">
+          <i class="bi bi-stack fs-4 mb-2 d-block" style="color:#b44cf0"></i>
+          <div class="fw-bold small">shadow-lg</div>
+          <div class="text-muted" style="font-size:.75rem">Large depth</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="util-box" style="background:rgba(255,210,90,.1);border:1px solid rgba(255,210,90,.3)">
+          <i class="bi bi-border-style fs-4 mb-2 d-block" style="color:#ffd25a"></i>
+          <div class="fw-bold small">rounded-*</div>
+          <div class="text-muted" style="font-size:.75rem">Border radius</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text alignment & spacing demo -->
+    <div class="row g-3 mt-2 reveal">
+      <div class="col-md-6">
+        <div class="card-dark p-4">
+          <h6 class="text-muted mb-3" style="font-size:.78rem;text-transform:uppercase;letter-spacing:.1em">Text Alignment Utilities</h6>
+          <p class="text-start border-bottom pb-2 mb-2" style="border-color:var(--border)!important"><span class="badge bg-secondary me-2">text-start</span> Left aligned text</p>
+          <p class="text-center border-bottom pb-2 mb-2" style="border-color:var(--border)!important"><span class="badge bg-secondary me-2">text-center</span> Centered text</p>
+          <p class="text-end border-bottom pb-2 mb-2" style="border-color:var(--border)!important">Right aligned <span class="badge bg-secondary ms-2">text-end</span></p>
+          <div class="d-flex gap-2 mt-2 flex-wrap">
+            <span class="badge rounded-pill" style="background:var(--accent)">fs-1 — fs-6</span>
+            <span class="badge rounded-pill bg-secondary">fw-bold fw-light</span>
+            <span class="badge rounded-pill bg-info text-dark">text-uppercase</span>
+            <span class="badge rounded-pill bg-warning text-dark">fst-italic</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card-dark p-4">
+          <h6 class="text-muted mb-3" style="font-size:.78rem;text-transform:uppercase;letter-spacing:.1em">Spacing Utilities (m-* / p-*)</h6>
+          <div class="p-1 mb-2 text-center rounded" style="background:rgba(247,37,133,.15);font-size:.8rem">p-1 — minimal padding</div>
+          <div class="p-3 mb-2 text-center rounded" style="background:rgba(76,201,240,.15);font-size:.8rem">p-3 — medium padding</div>
+          <div class="p-5 text-center rounded" style="background:rgba(114,9,183,.15);font-size:.8rem">p-5 — large padding</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ════════════════════════════════════════════
+     9. CONTACT FORM (with Validation)
+════════════════════════════════════════════ -->
+<section id="contact">
+  <div class="container">
+    <div class="text-center mb-5 reveal">
+      <p class="section-label">Get in Touch</p>
+      <h2 class="section-title">Start Your <span class="text-accent">Project</span></h2>
+      <p class="section-sub mt-3">Fill out the form below and we'll get back to you within 24 hours.</p>
+    </div>
+    <div class="row justify-content-center reveal">
+      <div class="col-lg-8">
+        <div class="card-dark p-4 p-md-5">
+          <form class="needs-validation" id="contactForm" novalidate>
+            <div class="row g-3">
+              <!-- Name -->
+              <div class="col-md-6">
+                <label class="form-label">First Name *</label>
+                <input type="text" class="form-control" placeholder="John" required />
+                <div class="invalid-feedback">First name is required.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Last Name *</label>
+                <input type="text" class="form-control" placeholder="Doe" required />
+                <div class="invalid-feedback">Last name is required.</div>
+              </div>
+
+              <!-- Email -->
+              <div class="col-md-6">
+                <label class="form-label">Email Address *</label>
+                <div class="input-group">
+                  <span class="input-group-text" style="background:rgba(255,255,255,.05);border:1px solid var(--border);border-right:none;color:var(--muted)">
+                    <i class="bi bi-envelope"></i>
+                  </span>
+                  <input type="email" class="form-control" placeholder="john@example.com" required
+                         style="border-left:none;" />
+                </div>
+                <div class="invalid-feedback">Valid email required.</div>
+              </div>
+
+              <!-- Phone -->
+              <div class="col-md-6">
+                <label class="form-label">Phone Number</label>
+                <div class="input-group">
+                  <span class="input-group-text" style="background:rgba(255,255,255,.05);border:1px solid var(--border);border-right:none;color:var(--muted)">
+                    <i class="bi bi-phone"></i>
+                  </span>
+                  <input type="tel" class="form-control" placeholder="+1 234 567 890"
+                         style="border-left:none;" />
+                </div>
+              </div>
+
+              <!-- Service Select -->
+              <div class="col-12">
+                <label class="form-label">Service Interested In *</label>
+                <select class="form-select" required>
+                  <option value="" disabled selected>Choose a service...</option>
+                  <option>UI/UX Design</option>
+                  <option>Web Development</option>
+                  <option>Mobile App</option>
+                  <option>Brand Identity</option>
+                  <option>Full Package</option>
+                </select>
+                <div class="invalid-feedback">Please select a service.</div>
+              </div>
+
+              <!-- Budget Radio -->
+              <div class="col-12">
+                <label class="form-label d-block">Budget Range *</label>
+                <div class="d-flex flex-wrap gap-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="budget" id="b1" value="<5k" required />
+                    <label class="form-check-label" for="b1">Under $5K</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="budget" id="b2" value="5-15k" />
+                    <label class="form-check-label" for="b2">$5K – $15K</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="budget" id="b3" value="15-50k" />
+                    <label class="form-check-label" for="b3">$15K – $50K</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="budget" id="b4" value=">50k" />
+                    <label class="form-check-label" for="b4">$50K+</label>
+                  </div>
+                </div>
+                <div class="invalid-feedback">Please select a budget range.</div>
+              </div>
+
+              <!-- Message -->
+              <div class="col-12">
+                <label class="form-label">Project Details *</label>
+                <textarea class="form-control" rows="4" placeholder="Tell us about your project..." required></textarea>
+                <div class="invalid-feedback">Please describe your project.</div>
+              </div>
+
+              <!-- Checkboxes -->
+              <div class="col-12">
+                <label class="form-label d-block mb-2">How did you hear about us?</label>
+                <div class="d-flex flex-wrap gap-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="c1" />
+                    <label class="form-check-label" for="c1">Google Search</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="c2" />
+                    <label class="form-check-label" for="c2">Social Media</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="c3" />
+                    <label class="form-check-label" for="c3">Referral</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="c4" />
+                    <label class="form-check-label" for="c4">Event / Conference</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Terms -->
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="agreeTerms" required />
+                  <label class="form-check-label" for="agreeTerms">
+                    I agree to the <a href="#" style="color:var(--accent)">Terms of Service</a> and <a href="#" style="color:var(--accent)">Privacy Policy</a> *
+                  </label>
+                  <div class="invalid-feedback">You must agree before submitting.</div>
+                </div>
+              </div>
+
+              <!-- Submit -->
+              <div class="col-12 d-flex gap-3 flex-wrap">
+                <button type="submit" class="btn btn-glow px-5">
+                  <i class="bi bi-send me-2"></i>Send Message
+                </button>
+                <button type="reset" class="btn btn-outline-custom px-4">
+                  <i class="bi bi-arrow-counterclockwise me-1"></i>Reset
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ════════════════════════════════════════════
+     10. MODALS
+════════════════════════════════════════════ -->
+<!-- Modal Triggers Strip -->
+<section class="py-4">
+  <div class="container">
+    <div class="text-center mb-4">
+      <p class="section-label">Modals</p>
+      <h2 class="section-title mb-3">Interactive <span class="text-accent">Modals</span></h2>
+    </div>
+    <div class="d-flex flex-wrap justify-content-center gap-3">
+      <button class="btn btn-glow" data-bs-toggle="modal" data-bs-target="#getStartedModal">
+        <i class="bi bi-rocket-takeoff me-2"></i>Get Started Modal
+      </button>
+      <button class="btn btn-outline-custom" data-bs-toggle="modal" data-bs-target="#infoModal">
+        <i class="bi bi-info-circle me-2"></i>Info Modal
+      </button>
+      <button class="btn btn-outline-custom" data-bs-toggle="modal" data-bs-target="#videoModal">
+        <i class="bi bi-play-circle me-2"></i>Feature Modal
+      </button>
+      <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#confirmModal">
+        <i class="bi bi-exclamation-triangle me-2"></i>Confirm Dialog
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Get Started Modal -->
+<div class="modal fade" id="getStartedModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title font-display">🚀 Launch Your Project</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p style="color:var(--muted)">We're excited to hear about your idea! Choose how you'd like to begin:</p>
+        <div class="row g-3 mt-1">
+          <div class="col-6">
+            <div class="card-dark p-3 text-center" style="cursor:pointer;" onclick="alert('Design path selected!')">
+              <i class="bi bi-palette fs-2 text-accent mb-2 d-block"></i>
+              <small class="fw-bold">Design First</small>
+              <p class="text-muted" style="font-size:.75rem;margin:0">Start with wireframes</p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="card-dark p-3 text-center" style="cursor:pointer;" onclick="alert('Dev path selected!')">
+              <i class="bi bi-code-slash fs-2 text-accent2 mb-2 d-block"></i>
+              <small class="fw-bold">Dev First</small>
+              <p class="text-muted" style="font-size:.75rem;margin:0">Start with prototype</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-custom" data-bs-dismiss="modal">Maybe Later</button>
+        <button type="button" class="btn btn-glow" data-bs-dismiss="modal">Book a Call</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Info Modal with Accordion -->
+<div class="modal fade" id="infoModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title font-display">📋 Our Design Process</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="accordion" id="processAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#step1">
+                <i class="bi bi-1-circle-fill text-accent me-2"></i> Discovery & Research
+              </button>
+            </h2>
+            <div id="step1" class="accordion-collapse collapse show" data-bs-parent="#processAccordion">
+              <div class="accordion-body">We start every project with deep discovery — understanding your users, market, competitors, and goals before a single pixel is designed.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#step2">
+                <i class="bi bi-2-circle-fill text-accent2 me-2"></i> Wireframing & Prototyping
+              </button>
+            </h2>
+            <div id="step2" class="accordion-collapse collapse" data-bs-parent="#processAccordion">
+              <div class="accordion-body">Low-fidelity wireframes establish structure and user flows. Interactive prototypes let you feel the product before a line of code is written.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#step3">
+                <i class="bi bi-3-circle-fill me-2" style="color:#b44cf0"></i> Visual Design & Handoff
+              </button>
+            </h2>
+            <div id="step3" class="accordion-collapse collapse" data-bs-parent="#processAccordion">
+              <div class="accordion-body">High-fidelity designs with a complete design system. Developer handoff includes annotated specs, assets, and component documentation.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#step4">
+                <i class="bi bi-4-circle-fill me-2" style="color:#ffd25a"></i> Build, Test & Launch
+              </button>
+            </h2>
+            <div id="step4" class="accordion-collapse collapse" data-bs-parent="#processAccordion">
+              <div class="accordion-body">Full-stack development with QA testing across devices and browsers. Staged deployment, performance optimization, and post-launch monitoring.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-glow" data-bs-dismiss="modal">Got It!</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Video / Feature Modal -->
+<div class="modal fade" id="videoModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header" style="border:none;">
+        <h5 class="modal-title font-display">✨ Key Features</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body pt-0">
+        <div class="ratio ratio-16x9 rounded-3 overflow-hidden mb-3" style="background:linear-gradient(135deg,#1a0a2e,#0d1b40);display:flex!important;align-items:center;justify-content:center;">
+          <div class="d-flex flex-column align-items-center justify-content-center" style="color:var(--muted)">
+            <i class="bi bi-play-circle-fill fs-1 text-accent mb-2" style="cursor:pointer;" onclick="alert('Demo video would play here!')"></i>
+            <small>Click to play demo</small>
+          </div>
+        </div>
+        <div class="row g-2">
+          <div class="col-6"><div class="util-box" style="background:rgba(247,37,133,.08);border:1px solid rgba(247,37,133,.15)"><i class="bi bi-speedometer2 text-accent d-block mb-1"></i><small>Blazing Fast</small></div></div>
+          <div class="col-6"><div class="util-box" style="background:rgba(76,201,240,.08);border:1px solid rgba(76,201,240,.15)"><i class="bi bi-shield-check text-accent2 d-block mb-1"></i><small>Enterprise Secure</small></div></div>
+          <div class="col-6"><div class="util-box" style="background:rgba(114,9,183,.08);border:1px solid rgba(114,9,183,.15)"><i class="bi bi-phone d-block mb-1" style="color:#b44cf0"></i><small>Fully Responsive</small></div></div>
+          <div class="col-6"><div class="util-box" style="background:rgba(255,210,90,.08);border:1px solid rgba(255,210,90,.15)"><i class="bi bi-plug d-block mb-1" style="color:#ffd25a"></i><small>Easy Integration</small></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Confirm Dialog Modal -->
+<div class="modal fade" id="confirmModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content text-center">
+      <div class="modal-body py-4">
+        <div class="mb-3" style="font-size:3rem">⚠️</div>
+        <h5 class="font-display mb-2">Are you sure?</h5>
+        <p style="color:var(--muted);font-size:.9rem">This action cannot be undone. All associated data will be permanently deleted.</p>
+      </div>
+      <div class="modal-footer justify-content-center border-0 pt-0 pb-4 gap-2">
+        <button class="btn btn-outline-custom px-4" data-bs-dismiss="modal">Cancel</button>
+        <button class="btn btn-danger px-4" onclick="alert('Deleted!'); bootstrap.Modal.getInstance(document.getElementById('confirmModal')).hide()">
+          <i class="bi bi-trash me-1"></i>Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════
+     11. FOOTER (Sticky)
+════════════════════════════════════════════ -->
+<footer style="background:var(--card-bg);border-top:1px solid var(--border);padding:3rem 0 0;">
+  <div class="container">
+    <div class="row g-4 pb-4">
+      <div class="col-md-4">
+        <div class="navbar-brand mb-3 d-block">Pixel<span class="text-accent">Forge</span></div>
+        <p style="color:var(--muted);font-size:.9rem;max-width:280px;">Crafting digital experiences that push boundaries and drive results. Est. 2012.</p>
+        <div class="d-flex gap-3 mt-3">
+          <a href="#" class="social-icon" style="color:var(--muted);font-size:1.2rem;" data-bs-toggle="tooltip" title="Twitter / X"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="social-icon" style="color:var(--muted);font-size:1.2rem;" data-bs-toggle="tooltip" title="GitHub"><i class="bi bi-github"></i></a>
+          <a href="#" class="social-icon" style="color:var(--muted);font-size:1.2rem;" data-bs-toggle="tooltip" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" class="social-icon" style="color:var(--muted);font-size:1.2rem;" data-bs-toggle="tooltip" title="Dribbble"><i class="bi bi-dribbble"></i></a>
+          <a href="#" class="social-icon" style="color:var(--muted);font-size:1.2rem;" data-bs-toggle="tooltip" title="Instagram"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-md-2">
+        <h6 style="font-family:'Syne',sans-serif;font-size:.82rem;text-transform:uppercase;letter-spacing:.1em;color:#fff;">Services</h6>
+        <ul class="list-unstyled mt-3" style="color:var(--muted);font-size:.88rem;line-height:2.2">
+          <li><a href="#" style="color:var(--muted);text-decoration:none;">UI/UX Design</a></li>
+          <li><a href="#" style="color:var(--muted);text-decoration:none;">Development</a></li>
+          <li><a href="#" style="color:var(--muted);text-decoration:none;">Branding</a></li>
+          <li><a href="#" style="color:var(--muted);text-decoration:none;">Analytics</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md-2">
+        <h6 style="font-family:'Syne',sans-serif;font-size:.82rem;text-transform:uppercase;letter-spacing:.1em;color:#fff;">Company</h6>
+        <ul class="list-unstyled mt-3" style="color:var(--muted);font-size:.88rem;line-height:2.2">
+          <li><a href="#" style="color:var(--muted);text-decoration:none;">About Us</a></li>
+          <li><a href="#" style="color:var(--muted);text-decoration:none;">Careers <span class="badge bg-success ms-1" style="font-size:.65rem">Hiring</span></a></li>
+          <li><a href="#" style="color:var(--muted);text-decoration:none;">Blog</a></li>
+          <li><a href="#" style="color:var(--muted);text-decoration:none;">Press Kit</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h6 style="font-family:'Syne',sans-serif;font-size:.82rem;text-transform:uppercase;letter-spacing:.1em;color:#fff;">Stay Updated</h6>
+        <p style="color:var(--muted);font-size:.87rem;margin:.75rem 0;">Get design insights and studio news in your inbox.</p>
+        <div class="input-group">
+          <input type="email" class="form-control search-bar" placeholder="your@email.com" style="border-radius:50px 0 0 50px !important;" />
+          <button class="btn btn-glow" style="border-radius:0 50px 50px 0 !important;">Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky Footer Bar -->
+  <div class="sticky-footer py-2">
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between gap-2">
+        <p class="mb-0 small" style="color:var(--muted)">© 2025 PixelForge Studio. All rights reserved.</p>
+        <div class="d-flex gap-3">
+          <a href="#" style="color:var(--muted);font-size:.82rem;text-decoration:none;">Privacy Policy</a>
+          <a href="#" style="color:var(--muted);font-size:.82rem;text-decoration:none;">Terms of Service</a>
+          <a href="#" style="color:var(--muted);font-size:.82rem;text-decoration:none;">Cookie Settings</a>
+        </div>
+        <a href="#hero" class="btn btn-sm btn-outline-custom" style="padding:.25rem .8rem;font-size:.8rem;">
+          <i class="bi bi-arrow-up me-1"></i>Back to Top
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
